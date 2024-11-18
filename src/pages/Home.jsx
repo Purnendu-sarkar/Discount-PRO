@@ -6,6 +6,7 @@ import BrandCard from '../components/brands/BrandCard';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import StatsSection from '../components/home/StatsSection';
+import NewsletterSection from '../components/home/NewsletterSection';
 
 const Home = () => {
     const brands = useLoaderData();
@@ -65,6 +66,8 @@ const Home = () => {
 
             {/* Stats Section */}
             <StatsSection></StatsSection>
+            {/* Newsletter Section */}
+            <NewsletterSection></NewsletterSection>
         </div>
     );
 };
