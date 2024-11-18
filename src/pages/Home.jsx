@@ -5,6 +5,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import BrandCard from '../components/brands/BrandCard';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import StatsSection from '../components/home/StatsSection';
 
 const Home = () => {
     const brands = useLoaderData();
@@ -61,6 +62,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Stats Section */}
+            <StatsSection></StatsSection>
         </div>
     );
 };
