@@ -16,6 +16,10 @@ const router = createBrowserRouter([
         ]
     },
     {
+        path: "/brands",
+        element: <h2></h2>
+    },
+    {
         path:"*",
         element: <h3>Error</h3>
     }
