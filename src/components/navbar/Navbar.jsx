@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, ShoppingBag, User, Info
-
- } from 'lucide-react';
+import { Home, ShoppingBag, User, Info } from 'lucide-react';
 
 
 const Navbar = () => {
