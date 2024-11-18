@@ -2,6 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../components/mainLayout/MainLayout';
 import Home from '../pages/Home';
+import Brands from '../pages/Brands';
 
 const router = createBrowserRouter([
     {
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
     },
     {
         path: "/brands",
-        element: <h2></h2>
+        element: <Brands></Brands>,
+        loader: ()=> fetch("/brands.json")
     },
     {
         path:"*",
