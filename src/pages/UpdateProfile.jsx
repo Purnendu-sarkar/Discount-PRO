@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, User, Image } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
+// import { useAuth } from '../contexts/AuthContext';
 import toast from 'react-hot-toast';
+import { useAuth } from '../context/AuthContext';
 
 const UpdateProfile = () => {
   const { currentUser, updateUserProfile } = useAuth();

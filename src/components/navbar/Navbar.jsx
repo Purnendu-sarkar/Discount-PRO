@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, ShoppingBag, User, Info, LogOut } from 'lucide-react';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../context/AuthContext';
+
 
 
 const Navbar = () => {
@@ -9,7 +10,7 @@ const Navbar = () => {
     return (
       <header className="bg-white shadow-md">
       <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center md:justify-between flex-col md:flex-row space-y-2">
           <Link to="/" className="flex items-center space-x-2">
             <ShoppingBag className="h-8 w-8 text-indigo-600" />
             <span className="text-xl font-bold text-gray-800">Discount PRO</span>

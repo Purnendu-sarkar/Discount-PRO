@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserPlus, Mail, Lock, User, Image, Eye, EyeOff } from 'lucide-react';
-// import { useAuth } from '../contexts/AuthContext';
+
 import toast from 'react-hot-toast';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../context/AuthContext';
+// import { useAuth } from '../contexts/AuthContext';
 
 const Register = () => {
     const [formData, setFormData] = useState({
