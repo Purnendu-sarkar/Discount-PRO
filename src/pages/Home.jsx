@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Slider from '../components/home/Slider';
 import Marquee from 'react-fast-marquee';
 import { Link, useLoaderData } from 'react-router-dom';
 import BrandCard from '../components/brands/BrandCard';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+
 import StatsSection from '../components/home/StatsSection';
 import NewsletterSection from '../components/home/NewsletterSection';
 
@@ -12,12 +11,7 @@ const Home = () => {
     const brands = useLoaderData();
     const [saleOnBrands, setSaleOnBrands] = useState(brands.filter(brand => brand.isSaleOn));
 
-    useEffect(() => {
-        Aos.init({
-            duration: 800,
-            once: true,
-        });
-    }, []);
+    
 
     return (
         <div className="min-h-screen">
