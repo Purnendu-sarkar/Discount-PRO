@@ -52,7 +52,7 @@ const Navbar = () => {
             {currentUser ? (
               <div className="flex items-center space-x-4">
                 <img
-                  src={currentUser.photoURL || 'https://i.ibb.co.com/SRFWyT4/P.png'}
+                  src={currentUser.photoURL || ''}
                   alt={currentUser.displayName || 'User'}
                   className="h-10 w-10 rounded-full"
                 />
@@ -116,7 +116,7 @@ const Navbar = () => {
               {currentUser ? (
                 <div className="flex items-center space-x-4">
                   <img
-                    src={currentUser.photoURL || 'https://via.placeholder.com/40'}
+                    src={currentUser.photoURL || ''}
                     alt={currentUser.displayName || 'User'}
                     className="h-10 w-10 rounded-full"
                   />

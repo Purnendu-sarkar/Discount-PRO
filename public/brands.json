@@ -43,7 +43,7 @@
       "rating": 4.0,
       "description": "An online marketplace offering diverse product categories ranging from electronics to home appliances.",
       "brand_logo": "https://i.ibb.co.com/RHvGN28/images-q-tbn-ANd9-Gc-Q6-CJcl9u-Z4icy1-Qh1f2tk-VJj0g-H3c6t-RLkjw-s.png",
-      "shop_link": "https://www.evaly.com.bd",
+      "shop_link": "https://evaly.com.bd/",
       "category": "Marketplace",
       "isSaleOn": true,
       "coupons": [
@@ -118,7 +118,7 @@
       "brand_name": "Aamra Technologies",
       "rating": 4.1,
       "description": "Technology solutions provider, specializing in IT and software services.",
-      "brand_logo": "https://i.ibb.co.com/TrLJcdW/208051.png",
+      "brand_logo": "https://i.ibb.co.com/236JkHG/aamra-network.jpg",
       "shop_link": "https://www.aamra.com.bd",
       "category": "Technology",
       "isSaleOn": false,
@@ -142,6 +142,123 @@
           "coupon_type": "Discount"
         }
       ]
-    }
+    },
+    {
+      "_id": "9",
+      "brand_name": "Pathao",
+      "rating": 4.5,
+      "description": "A ride-sharing platform that also offers food and parcel delivery services in Bangladesh.",
+      "brand_logo": "https://i.ibb.co.com/4f8Nz2Z/Pathao.png",
+      "shop_link": "https://www.pathao.com",
+      "category": "Ride-Sharing",
+      "isSaleOn": true,
+      "coupons": [
+          {
+              "coupon_code": "PATHAO50",
+              "description": "50 TK off on your first ride",
+              "expiry_date": "2025-12-31",
+              "condition": "New users only",
+              "coupon_type": "Discount"
+          }
+      ]
+  },
+  {
+      "_id": "10",
+      "brand_name": "Uber Bangladesh",
+      "rating": 4.6,
+      "description": "Global ride-hailing service offering affordable and convenient transportation options.",
+      "brand_logo": "https://i.ibb.co.com/C2nLBxH/Uber-Bangladesh.jpg",
+      "shop_link": "https://www.uber.com/bd/en/",
+      "category": "Ride-Sharing",
+      "isSaleOn": true,
+      "coupons": [
+          {
+              "coupon_code": "UBER200",
+              "description": "200 TK off on your first 3 rides",
+              "expiry_date": "2025-12-31",
+              "condition": "New users only",
+              "coupon_type": "Discount"
+          }
+      ]
+  },
+  {
+      "_id": "11",
+      "brand_name": "Shwapno",
+      "rating": 4.8,
+      "description": "Bangladesh’s largest retail chain offering fresh groceries, clothing, and household products.",
+      "brand_logo": "https://i.ibb.co.com/nBnK234/Shwapno.png",
+      "shop_link": "https://www.shwapno.com",
+      "category": "Grocery Delivery",
+      "isSaleOn": true,
+      "coupons": [
+          {
+              "coupon_code": "SHWAPNO300",
+              "description": "300 TK off on orders above 1500 TK",
+              "expiry_date": "2024-06-30",
+              "condition": "Existing customers only",
+              "coupon_type": "Discount"
+          }
+      ]
+  },
+  {
+      "_id": "12",
+      "brand_name": "Grameenphone",
+      "rating": 4.7,
+      "description": "Leading telecommunications provider in Bangladesh offering great connectivity and value.",
+      "brand_logo": "https://i.ibb.co.com/XXSyJCg/png-clipart-logo-grameenphone-bangladesh-telenor-airtel-logo-text-logo.png",
+      "shop_link": "https://www.grameenphone.com",
+      "category": "Telecom",
+      "isSaleOn": false,
+      "coupons": []
+  },
+  {
+      "_id": "13",
+      "brand_name": "Robi",
+      "rating": 4.5,
+      "description": "Telecom operator known for fast internet and wide coverage in Bangladesh.",
+      "brand_logo": "https://i.ibb.co.com/W3c05K4/aa66v27tr.webp",
+      "shop_link": "https://www.robi.com.bd",
+      "category": "Telecom",
+      "isSaleOn": true,
+      "coupons": [
+          {
+              "coupon_code": "ROBI10GB",
+              "description": "Get 10GB free data on your first recharge",
+              "expiry_date": "2025-08-31",
+              "condition": "New users only",
+              "coupon_type": "Bonus"
+          }
+      ]
+  },
+  {
+      "_id": "14",
+      "brand_name": "BDJobs",
+      "rating": 4.9,
+      "description": "Bangladesh's largest job portal connecting employers and job seekers.",
+      "brand_logo": "https://i.ibb.co.com/FnNYxqN/images-q-tbn-ANd9-Gc-Rdiz-H43ceugj3-6gnl-OFeu-ASSgy-C3-AIAs-Iwg-s.png",
+      "shop_link": "https://www.bdjobs.com",
+      "category": "Job Portal",
+      "isSaleOn": false,
+      "coupons": []
+  },
+  {
+      "_id": "15",
+      "brand_name": "Pickaboo",
+      "rating": 4.4,
+      "description": "A trusted e-commerce platform offering gadgets, electronics, and lifestyle products.",
+      "brand_logo": "https://i.ibb.co.com/SwK1KwV/png-transparent-bangladesh-pickaboo-com-online-shopping-magento-service-others-blue-company-text.png",
+      "shop_link": "https://www.pickaboo.com",
+      "category": "Electronics",
+      "isSaleOn": true,
+      "coupons": [
+          {
+              "coupon_code": "PICKABOO10",
+              "description": "10% off on all electronics",
+              "expiry_date": "2024-05-30",
+              "condition": "Maximum discount 2000 TK",
+              "coupon_type": "Discount"
+          }
+      ]
+  }
   ]
   
