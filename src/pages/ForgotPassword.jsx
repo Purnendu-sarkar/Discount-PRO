@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Mail, ArrowLeft } from 'lucide-react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Mail, ArrowLeft } from "lucide-react";
 // import { useAuth } from '../contexts/AuthContext';
-import toast from 'react-hot-toast';
-import { useAuth } from '../context/AuthContext';
+import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const ForgotPassword = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const { resetPassword } = useAuth();
   const navigate = useNavigate();
@@ -16,10 +17,10 @@ const ForgotPassword = () => {
     try {
       setLoading(true);
       await resetPassword(email);
-      toast.success('Password reset email sent! Please check your inbox.');
-      navigate('/login');
+      toast.success("Password reset email sent! Please check your inbox.");
+      navigate("/login");
     } catch (error) {
-      toast.error('Failed to reset password. Please try again.');
+      toast.error("Failed to reset password. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -27,6 +28,9 @@ const ForgotPassword = () => {
 
   return (
     <div className="min-h-screen py-12 bg-gray-50">
+      <Helmet>
+        <title>Discount PRO | Forgot Password</title>
+      </Helmet>
       <div className="container mx-auto px-4">
         <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
           <button
@@ -40,13 +44,17 @@ const ForgotPassword = () => {
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold">Reset Password</h1>
             <p className="text-gray-600 mt-2">
-              Enter your email address and we'll send you instructions to reset your password.
+              Enter your email address and we'll send you instructions to reset
+              your password.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Email Address
               </label>
               <div className="relative">
@@ -67,7 +75,7 @@ const ForgotPassword = () => {
               disabled={loading}
               className="w-full btn-primary"
             >
-              {loading ? 'Sending...' : 'Reset Password'}
+              {loading ? "Sending..." : "Reset Password"}
             </button>
           </form>
         </div>

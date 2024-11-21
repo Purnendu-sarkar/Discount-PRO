@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { useParams, Link, useLoaderData } from 'react-router-dom';
-import { Star, ExternalLink, Copy, Check } from 'lucide-react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import toast from 'react-hot-toast';
+import React, { useState } from "react";
+import { useParams, Link, useLoaderData } from "react-router-dom";
+import { Star, ExternalLink, Copy, Check } from "lucide-react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const BrandDetails = () => {
   const { id } = useParams();
@@ -26,17 +27,23 @@ const BrandDetails = () => {
 
   const handleCopy = (code) => {
     setCopiedCode(code);
-    toast.success('Coupon code copied!');
+    toast.success("Coupon code copied!");
     setTimeout(() => {
-      setCopiedCode(null); 
+      setCopiedCode(null);
     }, 3000);
   };
 
   return (
     <div className="min-h-screen py-12">
+      <Helmet>
+        <title>Discount PRO | Discount</title>
+      </Helmet>
       <div className="container mx-auto px-4">
         {/* Brand Header */}
-        <div className="bg-white rounded-lg shadow-md p-8 mb-8" data-aos="fade-up">
+        <div
+          className="bg-white rounded-lg shadow-md p-8 mb-8"
+          data-aos="fade-up"
+        >
           <div className="flex flex-col md:flex-row items-center gap-8">
             <img
               src={brand.brand_logo}
@@ -74,7 +81,9 @@ const BrandDetails = () => {
             >
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">{coupon.description}</h3>
+                  <h3 className="text-lg font-semibold mb-2">
+                    {coupon.description}
+                  </h3>
                   <p className="text-sm text-gray-500">{coupon.condition}</p>
                 </div>
                 <span className="px-2 py-1 bg-indigo-100 text-indigo-800 text-sm rounded">
@@ -83,7 +92,9 @@ const BrandDetails = () => {
               </div>
               <div className="flex items-center justify-between mt-4">
                 <div className="flex-1">
-                  <p className="text-sm text-gray-500">Expires: {coupon.expiry_date}</p>
+                  <p className="text-sm text-gray-500">
+                    Expires: {coupon.expiry_date}
+                  </p>
                 </div>
                 <div className="flex items-center gap-2">
                   <CopyToClipboard
@@ -91,7 +102,7 @@ const BrandDetails = () => {
                     onCopy={() => handleCopy(coupon.coupon_code)}
                   >
                     <button className="btn-secondary flex items-center gap-1">
-                      {copiedCode === coupon.coupon_code ? ( 
+                      {copiedCode === coupon.coupon_code ? (
                         <>
                           <Check className="h-4 w-4" />
                           Copied!
@@ -124,10 +135,3 @@ const BrandDetails = () => {
 };
 
 export default BrandDetails;
-
-
-
-
-
-
-

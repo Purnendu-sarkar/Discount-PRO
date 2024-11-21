@@ -30,6 +30,7 @@ A modern web application for finding and using discount coupons from popular e-c
 - React Copy to Clipboard
 - AOS (Animate on Scroll)
 - Lucide React Icons
+- React Helmet Async
 
 
 

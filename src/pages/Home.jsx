@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from '../components/home/Slider';
 import Marquee from 'react-fast-marquee';
 import { Link, useLoaderData } from 'react-router-dom';
@@ -6,15 +6,25 @@ import BrandCard from '../components/brands/BrandCard';
 
 import StatsSection from '../components/home/StatsSection';
 import NewsletterSection from '../components/home/NewsletterSection';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     const brands = useLoaderData();
     const [saleOnBrands, setSaleOnBrands] = useState(brands.filter(brand => brand.isSaleOn));
 
+    useEffect(() => {
+        if (brands && Array.isArray(brands)) {
+            setSaleOnBrands(brands.filter(brand => brand.isSaleOn));
+        }
+    }, [brands]);
+
     
 
     return (
         <div className="min-h-screen">
+            <Helmet>
+                <title>Discount PRO | Home</title>
+            </Helmet>
             {/* Hero Section with Slider */}
             <Slider></Slider>
             {/* Top Brands Section */}
@@ -27,8 +37,9 @@ const Home = () => {
                         <Marquee pauseOnHover gradient gradientWidth={50}>
                             {brands.map((brand) => (
                                 <Link
+                                to={`/brand/${brand._id}`}
                                     key={brand._id}
-                                    className="mx-8 gap-5 hover:opacity-75 transition-opacity"
+                                    className="mx-8 gap-5 space-x-3 card p-1 hover:opacity-75 transition-opacity"
                                 >
                                     <img
                                         src={brand.brand_logo}

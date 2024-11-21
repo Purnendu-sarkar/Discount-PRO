@@ -1,29 +1,30 @@
-import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { LogIn, Mail, Lock } from 'lucide-react';
+import React, { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { LogIn, Mail, Lock } from "lucide-react";
 // import { useAuth } from '../contexts/AuthContext';
-import toast from 'react-hot-toast';
-import { useAuth } from '../context/AuthContext';
+import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const { login, googleSignIn } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
       await login(email, password);
-      toast.success('Successfully logged in!');
+      toast.success("Successfully logged in!");
       navigate(from, { replace: true });
     } catch (error) {
-      toast.error('Failed to log in. Please check your credentials.');
+      toast.error("Failed to log in. Please check your credentials.");
     } finally {
       setLoading(false);
     }
@@ -33,10 +34,10 @@ const Login = () => {
     try {
       setLoading(true);
       await googleSignIn();
-      toast.success('Successfully logged in with Google!');
+      toast.success("Successfully logged in with Google!");
       navigate(from, { replace: true });
     } catch (error) {
-      toast.error('Failed to log in with Google.');
+      toast.error("Failed to log in with Google.");
     } finally {
       setLoading(false);
     }
@@ -44,6 +45,9 @@ const Login = () => {
 
   return (
     <div className="min-h-screen py-12 bg-gray-50">
+      <Helmet>
+        <title>Discount PRO | Login</title>
+      </Helmet>
       <div className="container mx-auto px-4">
         <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
           <div className="text-center mb-8">
@@ -53,7 +57,10 @@ const Login = () => {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Email Address
               </label>
               <div className="relative">
@@ -70,7 +77,10 @@ const Login = () => {
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Password
               </label>
               <div className="relative">
@@ -100,7 +110,9 @@ const Login = () => {
               disabled={loading}
               className="w-full btn-primary flex items-center justify-center gap-2"
             >
-              {loading ? 'Signing in...' : (
+              {loading ? (
+                "Signing in..."
+              ) : (
                 <>
                   <LogIn className="h-5 w-5" />
                   Sign In
@@ -115,7 +127,9 @@ const Login = () => {
                 <div className="w-full border-t border-gray-300" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                <span className="px-2 bg-white text-gray-500">
+                  Or continue with
+                </span>
               </div>
             </div>
 
@@ -124,14 +138,21 @@ const Login = () => {
               disabled={loading}
               className="mt-4 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-50 flex items-center justify-center gap-2"
             >
-              <img src="https://www.google.com/favicon.ico" alt="Google" className="h-5 w-5" />
+              <img
+                src="https://www.google.com/favicon.ico"
+                alt="Google"
+                className="h-5 w-5"
+              />
               Sign in with Google
             </button>
           </div>
 
           <p className="mt-8 text-center text-sm text-gray-600">
-            Don't have an account?{' '}
-            <Link to="/register" className="text-indigo-600 hover:text-indigo-500 font-medium">
+            Don't have an account?{" "}
+            <Link
+              to="/register"
+              className="text-indigo-600 hover:text-indigo-500 font-medium"
+            >
               Sign up
             </Link>
           </p>

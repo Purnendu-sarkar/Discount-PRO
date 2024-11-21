@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, User, Image } from 'lucide-react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft, User, Image } from "lucide-react";
 // import { useAuth } from '../contexts/AuthContext';
-import toast from 'react-hot-toast';
-import { useAuth } from '../context/AuthContext';
+import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const UpdateProfile = () => {
   const { currentUser, updateUserProfile } = useAuth();
   const [formData, setFormData] = useState({
-    name: currentUser?.displayName || '',
-    photoURL: currentUser?.photoURL || '',
+    name: currentUser?.displayName || "",
+    photoURL: currentUser?.photoURL || "",
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -19,10 +20,10 @@ const UpdateProfile = () => {
     try {
       setLoading(true);
       await updateUserProfile(formData.name, formData.photoURL);
-      toast.success('Profile updated successfully!');
-      navigate('/my-profile');
+      toast.success("Profile updated successfully!");
+      navigate("/my-profile");
     } catch (error) {
-      toast.error('Failed to update profile.');
+      toast.error("Failed to update profile.");
     } finally {
       setLoading(false);
     }
@@ -30,6 +31,9 @@ const UpdateProfile = () => {
 
   return (
     <div className="min-h-screen py-12 bg-gray-50">
+      <Helmet>
+        <title>Discount PRO | Update Profile</title>
+      </Helmet>
       <div className="container mx-auto px-4">
         <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
           <button
@@ -42,12 +46,17 @@ const UpdateProfile = () => {
 
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold">Update Profile</h1>
-            <p className="text-gray-600 mt-2">Change your profile information</p>
+            <p className="text-gray-600 mt-2">
+              Change your profile information
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Display Name
               </label>
               <div className="relative">
@@ -55,7 +64,9 @@ const UpdateProfile = () => {
                   id="name"
                   type="text"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   className="input-field pl-10"
                   required
                 />
@@ -64,7 +75,10 @@ const UpdateProfile = () => {
             </div>
 
             <div>
-              <label htmlFor="photoURL" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="photoURL"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Profile Photo URL
               </label>
               <div className="relative">
@@ -72,7 +86,9 @@ const UpdateProfile = () => {
                   id="photoURL"
                   type="url"
                   value={formData.photoURL}
-                  onChange={(e) => setFormData({ ...formData, photoURL: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, photoURL: e.target.value })
+                  }
                   className="input-field pl-10"
                   required
                 />
@@ -85,7 +101,7 @@ const UpdateProfile = () => {
               disabled={loading}
               className="w-full btn-primary"
             >
-              {loading ? 'Updating...' : 'Update Profile'}
+              {loading ? "Updating..." : "Update Profile"}
             </button>
           </form>
         </div>

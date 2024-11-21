@@ -4,6 +4,7 @@ import { UserPlus, Mail, Lock, User, Image, Eye, EyeOff } from 'lucide-react';
 
 import toast from 'react-hot-toast';
 import { useAuth } from '../context/AuthContext';
+import { Helmet } from 'react-helmet-async';
 // import { useAuth } from '../contexts/AuthContext';
 
 const Register = () => {
@@ -65,6 +66,9 @@ const Register = () => {
 
     return (
         <div className="min-h-screen py-12 bg-gray-50">
+            <Helmet>
+                <title>Discount PRO | Signup</title>
+            </Helmet>
             <div className="container mx-auto px-4">
                 <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
                     <div className="text-center mb-8">
