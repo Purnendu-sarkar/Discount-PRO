@@ -36,18 +36,7 @@ const router = createBrowserRouter([
                 </PrivateRoute> ,
                 loader: ()=> fetch("/brands.json")
             },
-            {
-                path: "/login",
-                element: <Login></Login>
-            },
-            {
-                path: "/forgot-password",
-                element: <ForgotPassword></ForgotPassword>
-            },
-            {
-                path: "/register",
-                element: <Register></Register>
-            },
+            
             {
                 path: "/about",
                 element: <About></About>
@@ -61,6 +50,18 @@ const router = createBrowserRouter([
                 element: <UpdateProfile></UpdateProfile>
             }
         ]
+    },
+    {
+        path: "/login",
+        element: <Login></Login>
+    },
+    {
+        path: "/forgot-password",
+        element: <ForgotPassword></ForgotPassword>
+    },
+    {
+        path: "/register",
+        element: <Register></Register>
     },
     {
         path:"*",
