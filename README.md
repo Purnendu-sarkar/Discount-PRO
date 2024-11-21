@@ -1,8 +1,35 @@
-# React + Vite
+# Discount PRO - Coupon Collecting Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for finding and using discount coupons from popular e-commerce shops in Bangladesh.
 
-Currently, two official plugins are available:
+## Live URL
+[Live Demo](https://discound-pro-purnendu.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+## Features
+
+
+- User Authentication with Email/Password and Google Sign-in
+- Browse available coupons for different brands
+- Copy coupon codes with a single click
+- Responsive design for all devices
+- Profile management
+- Password reset functionality
+
+
+
+## Technologies Used
+
+- React
+- Tailwind CSS
+- Firebase Authentication
+- React Router DOM
+- React Fast Marquee
+- React Hot Toast
+- React Copy to Clipboard
+- AOS (Animate on Scroll)
+- Lucide React Icons
+
+
+
