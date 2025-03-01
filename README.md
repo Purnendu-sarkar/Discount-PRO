@@ -3,7 +3,8 @@
 A modern web application for finding and using discount coupons from popular e-commerce shops in Bangladesh.
 
 ## Live URL
-[Live Demo](https://discound-pro-purnendu.netlify.app/)
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen)](https://discound-pro-purnendu.netlify.app)
 
 
 
