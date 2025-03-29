@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Home, ShoppingBag, User, Info, LogOut, Menu, X } from 'lucide-react';
-import { useAuth } from '../../context/AuthContext';
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { Home, ShoppingBag, User, Info, LogOut, Menu, X } from "lucide-react";
+import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
   const { currentUser, logout } = useAuth();
@@ -14,7 +14,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <ShoppingBag className="h-8 w-8 text-indigo-600" />
-            <span className="text-xl font-bold text-gray-800">Discount PRO</span>
+            <span className="text-xl font-bold text-gray-800">
+              Discount PRO
+            </span>
           </Link>
 
           {/* Hamburger Menu Button */}
@@ -22,29 +24,62 @@ const Navbar = () => {
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden text-gray-800 focus:outline-none"
           >
-            {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {menuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            <Link to="/" className="nav-link">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `nav-link ${
+                  isActive ? "text-indigo-600 font-semibold" : "text-gray-600"
+                }`
+              }
+            >
               <Home className="h-5 w-5" />
               <span>Home</span>
-            </Link>
-            <Link to="/brands" className="nav-link">
+            </NavLink>
+
+            <NavLink
+              to="/brands"
+              className={({ isActive }) =>
+                `nav-link ${
+                  isActive ? "text-indigo-600 font-semibold" : "text-gray-600"
+                }`
+              }
+            >
               <ShoppingBag className="h-5 w-5" />
               <span>Brands</span>
-            </Link>
+            </NavLink>
             {currentUser && (
-              <Link to="/my-profile" className="nav-link">
+              <NavLink
+                to="/my-profile"
+                className={({ isActive }) =>
+                  `nav-link ${
+                    isActive ? "text-indigo-600 font-semibold" : "text-gray-600"
+                  }`
+                }
+              >
                 <User className="h-5 w-5" />
                 <span>Profile</span>
-              </Link>
+              </NavLink>
             )}
-            <Link to="/about" className="nav-link">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `nav-link ${
+                  isActive ? "text-indigo-600 font-semibold" : "text-gray-600"
+                }`
+              }
+            >
               <Info className="h-5 w-5" />
               <span>About</span>
-            </Link>
+            </NavLink>
           </div>
 
           {/* User Actions */}
@@ -52,15 +87,17 @@ const Navbar = () => {
             {currentUser ? (
               <div className="flex items-center space-x-4">
                 <img
-                  src={currentUser.photoURL || ''}
-                  alt={currentUser.displayName || 'User'}
+                  src={currentUser.photoURL || ""}
+                  alt={currentUser.displayName || "User"}
                   className="h-10 w-10 rounded-full"
                 />
                 <div className="flex flex-col">
                   <span className="text-sm font-medium text-gray-700">
                     {currentUser.displayName}
                   </span>
-                  <span className="text-xs text-gray-500">{currentUser.email}</span>
+                  <span className="text-xs text-gray-500">
+                    {currentUser.email}
+                  </span>
                 </div>
                 <button
                   onClick={() => logout()}
@@ -92,39 +129,69 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="flex flex-col space-y-4 mt-4 md:hidden">
-            <Link to="/" className="nav-link">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `nav-link ${
+                  isActive ? "text-indigo-600 font-semibold" : "text-gray-600"
+                }`
+              }
+            >
               <Home className="h-5 w-5" />
               <span>Home</span>
-            </Link>
-            <Link to="/brands" className="nav-link">
+            </NavLink>
+            <NavLink
+              to="/brands"
+              className={({ isActive }) =>
+                `nav-link ${
+                  isActive ? "text-indigo-600 font-semibold" : "text-gray-600"
+                }`
+              }
+            >
               <ShoppingBag className="h-5 w-5" />
               <span>Brands</span>
-            </Link>
+            </NavLink>
             {currentUser && (
-              <Link to="/my-profile" className="nav-link">
+              <NavLink
+                to="/my-profile"
+                className={({ isActive }) =>
+                  `nav-link ${
+                    isActive ? "text-indigo-600 font-semibold" : "text-gray-600"
+                  }`
+                }
+              >
                 <User className="h-5 w-5" />
                 <span>Profile</span>
-              </Link>
+              </NavLink>
             )}
-            <Link to="/about" className="nav-link">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `nav-link ${
+                  isActive ? "text-indigo-600 font-semibold" : "text-gray-600"
+                }`
+              }
+            >
               <Info className="h-5 w-5" />
               <span>About</span>
-            </Link>
+            </NavLink>
 
             {/* User Actions inside Mobile Menu */}
             <div className="flex flex-col items-start space-y-4 mt-4">
               {currentUser ? (
                 <div className="flex items-center space-x-4">
                   <img
-                    src={currentUser.photoURL || ''}
-                    alt={currentUser.displayName || 'User'}
+                    src={currentUser.photoURL || ""}
+                    alt={currentUser.displayName || "User"}
                     className="h-10 w-10 rounded-full"
                   />
                   <div className="flex flex-col">
                     <span className="text-sm font-medium text-gray-700">
                       {currentUser.displayName}
                     </span>
-                    <span className="text-xs text-gray-500">{currentUser.email}</span>
+                    <span className="text-xs text-gray-500">
+                      {currentUser.email}
+                    </span>
                   </div>
                   <button
                     onClick={() => logout()}
